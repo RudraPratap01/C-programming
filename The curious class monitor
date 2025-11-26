@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    struct Student {
+    char name[50],grade;
+    int age;
+};
+    struct Student student1;
+    fgets(student1.name, sizeof(student1.name), stdin);
+    scanf("%d", &student1.age);
+    scanf(" %c", &student1.grade);
+    printf("Name: %s", student1.name);
+    printf("Age: %d\n", student1.age);
+    printf("Grade: %c\n", student1.grade);
+    return 0;
+}
