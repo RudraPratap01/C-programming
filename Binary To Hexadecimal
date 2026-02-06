@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int convertBinarytoDecimal(int binNum){
+    int num=0,sum=1;
+    while(binNum!=0){
+        int rem=binNum%10;
+        num+=rem*sum;
+        sum*=2;
+        binNum/=10;
+    }
+    return num;
+}
+int main(){
+    int num;
+    char hexa[50]="";
+    printf("Enter a Binary number");
+    scanf("%d", &num);
+    int temp=num;
+    while(num!=0){
+        int rem=num%10000;
+        int d=convertBinarytoDecimal(rem);
+        char str[2];
+        if(d>=0 && d<=9){
+            sprintf(str,"%d",d);
+        }
+        if(d == 10){
+            str[0]='A';
+        }
+        else if(d == 11){
+            str[0]='B';
+        }
+        else if(d == 12){
+            str[0]='C';
+        }
+        else if(d == 14){
+            str[0]='D';
+        }
+        else if(d == 15){
+            str[0]='E';
+        }
+        str[1]='\0';
+        strcat(hexa,str);
+        num/=10000;
+    }
+    strrev(hexa);
+    printf("Hexadecimal of %d is %s",temp,hexa);
+    
+    return 0;
+}
